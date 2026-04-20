@@ -1,86 +1,88 @@
 Overview
 
-Multi Messenger Project is a full-stack messaging application that provides a single interface for sending messages through multiple communication platforms. The system consists of:
+Multi Messenger Application is a full-stack system that provides a centralized platform for sending messages across multiple communication services. The project consists of a Spring Boot backend and a frontend interface (React-based) that allows users to interact with the system.
 
-a Spring Boot backend for API handling, business logic, database access, and third-party platform integration
-a React frontend for user login and message sending
+The backend processes user requests, identifies the selected platform, retrieves the mapped platform account from the database, and sends the message using external APIs such as Telegram and Discord. The frontend provides a user-friendly interface for login and message sending.
 
-The project currently supports:
-
-Telegram
-Discord
-
-The following platforms are included for future extension:
-
-Slack
-WhatsApp
-
-This project is useful for demonstrating full-stack development, REST APIs, database integration, external API usage, and platform-based message routing.
-
-Project Structure
-multi-messenger-project/
-│
-├── backend/
-│   ├── src/
-│   ├── pom.xml
-│   ├── mvnw
-│   └── mvnw.cmd
-│
-├── frontend/
-│   ├── src/
-│   ├── package.json
-│   ├── vite.config.js
-│   └── index.html
-│
-└── README.md
-
-Tech Stack
-Frontend
-React
-Vite
-JavaScript
-Fetch API
+Features
+Centralized full-stack messaging system
+User-friendly frontend interface for interaction
+REST API for authentication and message sending
+Telegram message delivery using Telegram Bot API
+Discord message delivery using JDA
+MySQL-based storage for user-platform mappings
+Modular backend architecture (controller, service, repository, model)
+Frontend-backend API integration using HTTP requests
+Scalable design for adding platforms like Slack and WhatsApp
+Technologies Used
 Backend
 Java 17
 Spring Boot
 Spring Web MVC
 Spring Data JPA
+MySQL
+H2 Database
+JDA (Java Discord API)
+Maven
+Frontend
+React
+HTML
+CSS
+JavaScript
+Axios (for API calls)
+Project Structure
+multi-messenger-project/
+│
+├── backend/
+│   └── src/main/java/com/project/multimessenger
+│       │
+│       ├── controller
+│       │   ├── AuthController.java
+│       │   └── MessageController.java
+│       │
+│       ├── dto
+│       │   ├── LoginRequest.java
+│       │   └── MessageRequest.java
+│       │
+│       ├── model
+│       │   ├── Platform.java
+│       │   ├── User.java
+│       │   └── UserPlatformAccount.java
+│       │
+│       ├── repository
+│       │   ├── PlatformRepository.java
+│       │   ├── UserRepository.java
+│       │   └── UserPlatformAccountRepository.java
+│       │
+│       ├── service
+│       │   ├── DiscordService.java
+│       │   ├── MessageService.java
+│       │   └── UserService.java
+│       │
+│       └── MultimessengerApplication.java
+│
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   │
+│   └── package.json
+How the Project Works
+User interacts with the frontend interface
+Frontend sends API request to backend
+Backend receives and processes the request
+Backend checks the selected platform
+It looks up the platform in the platforms table
+It finds the user’s mapped platform account in the user_platform_accounts table
+Based on the platform:
+Sends the message using Telegram Bot API
+Sends the message using Discord JDA
+Backend returns response to frontend
+Frontend displays success or error message to user
+Backend Setup
+Prerequisites
+Java 17
 Maven
 MySQL
-JDA (Discord integration)
-Telegram Bot API
-Features
-User login interface
-Send messages using one unified dashboard
-Platform selection for message delivery
-Backend validation of request data
-Telegram integration
-Discord integration
-Database-based platform and user account mapping
-Extensible design for adding more platforms
-How It Works
-User opens the frontend and logs in.
-After login, the dashboard appears.
-User enters:
-message text
-user ID
-target platform
-Frontend sends the request to the backend.
-Backend validates the request.
-Backend checks:
-whether the platform exists in the database
-whether the user has a mapped account for that platform
-Based on the selected platform:
-Telegram message is sent through Telegram Bot API
-Discord message is sent through Discord bot integration
-Response is returned to the frontend.
-
-Installation Instructions
-
-Make sure the following are installed on your system:
-Java 17
-Node.js (version 18 or above)
-MySQL Server
-Maven (or use the provided Maven wrapper)
-Git
-Any IDE (VS Code, IntelliJ, Eclipse)
