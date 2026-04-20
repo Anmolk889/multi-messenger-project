@@ -1,16 +1,86 @@
-# React + Vite
+Overview
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Multi Messenger Project is a full-stack messaging application that provides a single interface for sending messages through multiple communication platforms. The system consists of:
 
-Currently, two official plugins are available:
+a Spring Boot backend for API handling, business logic, database access, and third-party platform integration
+a React frontend for user login and message sending
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The project currently supports:
 
-## React Compiler
+Telegram
+Discord
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The following platforms are included for future extension:
 
-## Expanding the ESLint configuration
+Slack
+WhatsApp
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+This project is useful for demonstrating full-stack development, REST APIs, database integration, external API usage, and platform-based message routing.
+
+Project Structure
+multi-messenger-project/
+│
+├── backend/
+│   ├── src/
+│   ├── pom.xml
+│   ├── mvnw
+│   └── mvnw.cmd
+│
+├── frontend/
+│   ├── src/
+│   ├── package.json
+│   ├── vite.config.js
+│   └── index.html
+│
+└── README.md
+
+Tech Stack
+Frontend
+React
+Vite
+JavaScript
+Fetch API
+Backend
+Java 17
+Spring Boot
+Spring Web MVC
+Spring Data JPA
+Maven
+MySQL
+JDA (Discord integration)
+Telegram Bot API
+Features
+User login interface
+Send messages using one unified dashboard
+Platform selection for message delivery
+Backend validation of request data
+Telegram integration
+Discord integration
+Database-based platform and user account mapping
+Extensible design for adding more platforms
+How It Works
+User opens the frontend and logs in.
+After login, the dashboard appears.
+User enters:
+message text
+user ID
+target platform
+Frontend sends the request to the backend.
+Backend validates the request.
+Backend checks:
+whether the platform exists in the database
+whether the user has a mapped account for that platform
+Based on the selected platform:
+Telegram message is sent through Telegram Bot API
+Discord message is sent through Discord bot integration
+Response is returned to the frontend.
+
+Installation Instructions
+
+Make sure the following are installed on your system:
+Java 17
+Node.js (version 18 or above)
+MySQL Server
+Maven (or use the provided Maven wrapper)
+Git
+Any IDE (VS Code, IntelliJ, Eclipse)
