@@ -5,15 +5,15 @@ Multi Messenger Application is a full-stack system that provides a centralized p
 The backend processes user requests, identifies the selected platform, retrieves the mapped platform account from the database, and sends the message using external APIs such as Telegram and Discord. The frontend provides a user-friendly interface for login and message sending.
 
 # Features
-Centralized full-stack messaging system
-User-friendly frontend interface for interaction
-REST API for authentication and message sending
-Telegram message delivery using Telegram Bot API
-Discord message delivery using JDA
-MySQL-based storage for user-platform mappings
-Modular backend architecture (controller, service, repository, model)
-Frontend-backend API integration using HTTP requests
-Scalable design for adding platforms like Slack and WhatsApp
+1.Centralized full-stack messaging system
+2.User-friendly frontend interface for interaction
+3.REST API for authentication and message sending
+4.Telegram message delivery using Telegram Bot API
+5.Discord message delivery using JDA
+6.MySQL-based storage for user-platform mappings
+7.Modular backend architecture (controller, service, repository, model)
+8.Frontend-backend API integration using HTTP requests
+9.Scalable design for adding platforms like Slack and WhatsApp
 
 # Technologies Used
 Backend
