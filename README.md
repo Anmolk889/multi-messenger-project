@@ -1,10 +1,10 @@
-Overview
+# Overview
 
 Multi Messenger Application is a full-stack system that provides a centralized platform for sending messages across multiple communication services. The project consists of a Spring Boot backend and a frontend interface (React-based) that allows users to interact with the system.
 
 The backend processes user requests, identifies the selected platform, retrieves the mapped platform account from the database, and sends the message using external APIs such as Telegram and Discord. The frontend provides a user-friendly interface for login and message sending.
 
-Features
+# Features
 Centralized full-stack messaging system
 User-friendly frontend interface for interaction
 REST API for authentication and message sending
@@ -14,7 +14,8 @@ MySQL-based storage for user-platform mappings
 Modular backend architecture (controller, service, repository, model)
 Frontend-backend API integration using HTTP requests
 Scalable design for adding platforms like Slack and WhatsApp
-Technologies Used
+
+# Technologies Used
 Backend
 Java 17
 Spring Boot
@@ -30,7 +31,8 @@ HTML
 CSS
 JavaScript
 Axios (for API calls)
-Project Structure
+
+# Project Structure
 multi-messenger-project/
 │
 ├── backend/
@@ -69,7 +71,8 @@ multi-messenger-project/
 │   │   └── main.jsx
 │   │
 │   └── package.json
-How the Project Works
+
+# How the Project Works
 User interacts with the frontend interface
 Frontend sends API request to backend
 Backend receives and processes the request
@@ -81,8 +84,14 @@ Sends the message using Telegram Bot API
 Sends the message using Discord JDA
 Backend returns response to frontend
 Frontend displays success or error message to user
-Backend Setup
+
+# Backend Setup
 Prerequisites
 Java 17
 Maven
 MySQL
+
+# Frontend Setup
+Prerequisites
+Node.js
+npm
