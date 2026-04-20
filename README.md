@@ -35,6 +35,7 @@ Axios (for API calls)
 # Project Structure
 
 multi-messenger-project/
+```text
 │
 ├── backend/
 │   └── src/main/java/com/project/multimessenger
@@ -86,13 +87,165 @@ Sends the message using Discord JDA
 Backend returns response to frontend
 Frontend displays success or error message to user
 
-# Backend Setup
-Prerequisites
-Java 17
-Maven
-MySQL
+---
 
-# Frontend Setup
-Prerequisites
-Node.js
-npm
+# Installation Instructions
+
+## Prerequisites
+
+# Backend
+
+* Java 17
+* Maven
+* MySQL
+
+### Frontend
+
+* Node.js
+* npm
+
+## Step 1: Clone the Repository
+
+```bash
+git clone https://github.com/your-username/multi-messenger-project.git
+cd multi-messenger-project
+```
+
+
+## Step 2: Backend Setup
+
+### Navigate to backend folder
+
+```bash
+cd backend
+```
+
+
+### Add API Tokens
+
+```properties
+telegram.bot.token=your_telegram_token
+discord.bot.token=your_discord_token
+```
+
+### Create Database
+
+Run this in MySQL:
+
+```sql
+CREATE DATABASE multimessenger;
+```
+
+### Run Backend
+
+```bash
+mvn spring-boot:run
+```
+
+Backend will start at:
+
+```text
+http://localhost:8080
+```
+
+---
+
+## Step 3: Frontend Setup
+
+### Navigate to frontend folder
+
+```bash
+cd ../frontend
+```
+
+### Install Dependencies
+
+```bash
+npm install
+```
+
+### Start Frontend
+
+```bash
+npm run dev
+```
+
+Frontend will run at:
+
+```text
+http://localhost:5173
+```
+
+---
+
+## Step 4: Verify Application
+
+### Test Backend
+
+Open browser or Postman:
+
+```http
+GET http://localhost:8080/message/test
+```
+
+Expected output:
+
+```text
+Backend is working
+```
+
+---
+
+## Step 5: Insert Sample Data
+
+### Insert Platforms
+
+```sql
+INSERT INTO platforms (platform_name) VALUES ('Telegram');
+INSERT INTO platforms (platform_name) VALUES ('Discord');
+INSERT INTO platforms (platform_name) VALUES ('Slack');
+INSERT INTO platforms (platform_name) VALUES ('WhatsApp');
+```
+
+### Insert User
+
+```sql
+INSERT INTO users (full_name, email, phone, created_at)
+VALUES ('Test User', 'test@example.com', '9999999999', NOW());
+```
+
+## Step 6: Test APIs
+
+### Login
+
+```http
+POST http://localhost:8080/auth/login
+```
+
+Body:
+
+```json
+{
+  "email": "admin",
+  "password": "1234"
+}
+```
+
+
+
+### Send Message
+
+```http
+POST http://localhost:8080/message/send
+```
+
+Body:
+
+```json
+{
+  "userId": 1,
+  "platform": "Telegram",
+  "message": "Hello from Multi Messenger"
+}
+
+
